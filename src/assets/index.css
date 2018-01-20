@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+}
+
+.active > div > h3 {
+    color: rebeccapurple;
+    font-weight: bolder;
+}
+
+.display-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.align-end {
+    align-self: flex-end;
+}

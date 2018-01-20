@@ -8,6 +8,8 @@ import IconButton from 'material-ui/IconButton';
 import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
 import { FormControl } from 'material-ui/Form';
 import Grid from 'material-ui/Grid';
+import { CircularProgress } from 'material-ui/Progress';
+import purple from 'material-ui/colors/purple';
 
 import EventCard from './EventCard';
 
@@ -44,11 +46,10 @@ class SearchEvent extends Component {
     constructor(props) {
         super(props);
 
-        console.log(props);
-
         this.state = {
             searchQuery: props.match.params.organiser,
-            events: []
+            events: [],
+            loading: false
         };
 
         this.handleSearchInput = this.handleSearchInput.bind(this);
@@ -79,8 +80,11 @@ class SearchEvent extends Component {
     }
 
     fetchSearchData(organiser) {
+        this.setState({ loading: true });
+
         getEventByOrganiser(organiser).then(res => {
-            if (!res.error) this.setState({ events: res });
+            if (!res.error) this.setState({ events: res, loading: false });
+            else this.setState({ loading: false });
         });
     }
 
@@ -107,28 +111,43 @@ class SearchEvent extends Component {
                 </FormControl>
 
                 <br />
-                <Grid
-                    container
-                    className={classes.gridRoot}
-                    style={{ marginTop: '21px' }}
-                >
-                    <Grid item xs={12}>
-                        <Grid
-                            container
-                            className={classes.demo}
-                            justify="center"
-                            spacing={Number('16')}
-                        >
-                            {this.state.events.map(element => {
-                                return (
-                                    <Grid key={element.id} item>
-                                        <EventCard element={element} />
-                                    </Grid>
-                                );
-                            })}
+                {this.state.loading ? (
+                    <div
+                        style={{
+                            textAlign: 'center',
+                            margin: '0 auto',
+                            marginTop: '21px'
+                        }}
+                    >
+                        <CircularProgress
+                            style={{ color: purple[500] }}
+                            thickness={7}
+                        />
+                    </div>
+                ) : (
+                    <Grid
+                        container
+                        className={classes.gridRoot}
+                        style={{ marginTop: '21px' }}
+                    >
+                        <Grid item xs={12}>
+                            <Grid
+                                container
+                                className={classes.demo}
+                                justify="center"
+                                spacing={Number('16')}
+                            >
+                                {this.state.events.map(element => {
+                                    return (
+                                        <Grid key={element.id} item>
+                                            <EventCard element={element} />
+                                        </Grid>
+                                    );
+                                })}
+                            </Grid>
                         </Grid>
                     </Grid>
-                </Grid>
+                )}
             </div>
         );
     }

@@ -1,5 +1,21 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+### Requirements:
+* [Node.JS](https://nodejs.org/en/) Must be installed and then
+```bash
+  cd SimpleEvents
+  yarn install
+```
+
+### To Run Locally:
+```bash
+  yarn start
+```
+### To Create a Deployable Build And Test Locally
+```bash
+  yarn buildS
+```
+
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 

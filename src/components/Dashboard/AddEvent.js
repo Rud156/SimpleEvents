@@ -12,6 +12,7 @@ import { FormControl } from 'material-ui/Form';
 import Card, { CardActions, CardContent } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import { withStyles } from 'material-ui/styles';
+import red from 'material-ui/colors/red';
 
 import moment from 'moment';
 import { addNewEvent } from '../../utils/api';
@@ -191,10 +192,13 @@ class AddEvent extends Component {
                             dense
                             onClick={this.handleFormSubmit}
                             raised
-                            color="accent"
+                            style={{
+                                backgroundColor: red[500],
+                                color: 'white',
+                                margin: '7px'
+                            }}
                             className="align-end"
                             disabled={this.state.loading}
-                            style={{ margin: '7px' }}
                         >
                             Submit
                         </Button>

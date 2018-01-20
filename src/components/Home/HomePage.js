@@ -10,6 +10,7 @@ import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
+import red from 'material-ui/colors/red';
 
 import { actionAddUser } from './../../actions/UserAction';
 import { actionDisplayMessage } from './../../actions/NotificationAction';
@@ -183,7 +184,10 @@ class HomePage extends Component {
                         <Button
                             dense
                             onClick={this.handleFromSubmit}
-                            color="accent"
+                            style={{
+                                backgroundColor: red[500],
+                                color: 'white'
+                            }}
                             raised
                             className={classes.marginRight}
                         >

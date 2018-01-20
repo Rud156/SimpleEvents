@@ -24,6 +24,7 @@ import Hidden from 'material-ui/Hidden';
 import Divider from 'material-ui/Divider';
 import Icon from 'material-ui/Icon';
 import Button from 'material-ui/Button';
+import purple from 'material-ui/colors/purple';
 
 import { titleCase } from '../../utils/constants';
 import { actionRemoveUser } from './../../actions/UserAction';
@@ -31,6 +32,7 @@ import { actionRemoveUser } from './../../actions/UserAction';
 import AllEvents from './AllEvents';
 import AddEvent from './AddEvent';
 import EventDetails from './EventDetails';
+import SearchEvent from './SearchEvent';
 
 const drawerWidth = 240;
 
@@ -146,6 +148,18 @@ class DashBoard extends Component {
                         </ListItemIcon>
                         <ListItemText primary="Add Event" />
                     </ListItem>
+                    <ListItem
+                        button
+                        component={NavLink}
+                        exact
+                        to="/dashboard/search"
+                        activeClassName="active"
+                    >
+                        <ListItemIcon>
+                            <Icon>search</Icon>
+                        </ListItemIcon>
+                        <ListItemText primary="Search" />
+                    </ListItem>
                 </List>
                 <Divider />
             </div>
@@ -156,7 +170,7 @@ class DashBoard extends Component {
                 <div className={classes.root}>
                     <div className={classes.appFrame}>
                         <AppBar className={classes.appBar}>
-                            <Toolbar>
+                            <Toolbar style={{ backgroundColor: purple[500] }}>
                                 <IconButton
                                     color="contrast"
                                     aria-label="open drawer"
@@ -218,6 +232,15 @@ class DashBoard extends Component {
                                     exact
                                     path="/dashboard"
                                     component={AllEvents}
+                                />
+                                <Route
+                                    exact
+                                    path="/dashboard/search"
+                                    component={SearchEvent}
+                                />
+                                <Route
+                                    path="/dashboard/search/:organiser"
+                                    component={SearchEvent}
                                 />
                                 <Route
                                     path="/dashboard/add"

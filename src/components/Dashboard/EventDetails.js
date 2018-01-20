@@ -141,7 +141,7 @@ class EventDetails extends Component {
                         <Card className={classes.card}>
                             <CardMedia
                                 image="/static/event.jpg"
-                                title="Contemplative Reptile"
+                                title="Default Event Image"
                                 className={classes.media}
                             />
                             <CardContent>

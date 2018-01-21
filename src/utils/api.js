@@ -1,3 +1,5 @@
+//@ts-check
+
 import { ERROR_MESSAGE, BASE_URL } from './constants';
 import { actionDisplayMessage } from './../actions/NotificationAction';
 
@@ -89,7 +91,7 @@ export const addNewEvent = (title, date, organiser, price) => {
 
 export const addNewComment = (eventId, body) => {
     return axios
-        .get(`${BASE_URL}/comments`, {
+        .post(`${BASE_URL}/comments`, {
             body: body,
             postId: eventId
         })

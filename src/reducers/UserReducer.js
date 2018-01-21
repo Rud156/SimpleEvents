@@ -1,3 +1,5 @@
+//@ts-check
+
 import {
     ADD_USER,
     REMOVE_USER,

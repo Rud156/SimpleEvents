@@ -1,3 +1,5 @@
+//@ts-check
+
 import {
     DISPLAY_MESSAGE,
     CLEAR_MESSAGE

@@ -1,3 +1,5 @@
+//@ts-check
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -114,9 +116,8 @@ class EventDetails extends Component {
             let id = this.props.match.params.id;
             addNewComment(id, potentialComment).then(res => {
                 if (!res.error) {
-                    let comments = res.filter(element => {
-                        return element.postId === parseInt(id, 10);
-                    });
+                    let { comments } = this.state;
+                    comments.push(res);
 
                     this.setState({
                         potentialComment: '',

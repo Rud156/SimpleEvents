@@ -1,3 +1,5 @@
+//@ts-check
+
 export const DISPLAY_MESSAGE = 'DISPLAY_MESSAGE';
 export const CLEAR_MESSAGE = 'CLEAR_MESSAGE';
 

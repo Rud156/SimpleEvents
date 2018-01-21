@@ -1,3 +1,5 @@
+//@ts-check
+
 import { createStore, combineReducers } from 'redux';
 
 import NotificationReducer from './../reducers/NotificationReducer';
@@ -10,6 +12,7 @@ const combinedReducers = combineReducers({
 
 const store = createStore(
     combinedReducers,
+    //@ts-ignore
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 

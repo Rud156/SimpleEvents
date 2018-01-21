@@ -1,3 +1,5 @@
+//@ts-check
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Notification from './components/Notification';

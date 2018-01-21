@@ -1,3 +1,5 @@
+//@ts-check
+
 export const ERROR_MESSAGE =
     'Sorry about that. But it looks like we made a mistake.';
 export const BASE_URL = 'https://eventmanager-server.herokuapp.com';
